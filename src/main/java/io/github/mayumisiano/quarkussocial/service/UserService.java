@@ -4,13 +4,14 @@ import io.github.mayumisiano.quarkussocial.exceptions.NotFoundException;
 import io.github.mayumisiano.quarkussocial.rest.DTO.request.CreateUserRequest;
 import io.github.mayumisiano.quarkussocial.rest.DTO.request.UpdateUserRequest;
 import io.github.mayumisiano.quarkussocial.rest.DTO.response.ListUserDetails;
+import io.github.mayumisiano.quarkussocial.rest.DTO.response.UserDetails;
 
 public interface UserService {
-    User createUser(CreateUserRequest userRequest);
+    UserDetails createUser(CreateUserRequest userRequest);
 
     ListUserDetails getAllUsers();
 
     void deleteUser(String id) throws NotFoundException;
 
-    void updateUser(String id, UpdateUserRequest userRequest);
+    UserDetails updateUser(String id, UpdateUserRequest userRequest);
 }

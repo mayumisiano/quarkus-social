@@ -44,8 +44,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User createUser(CreateUserRequest request) {
-        return userRepository.create(request.name(), request.age());
+    public UserDetails createUser(CreateUserRequest request) {
+        User user = userRepository.create(request.name(), request.age());
+        return new UserDetails(
+                user.getId().toString(),
+                user.getName(),
+                user.getAge()
+        );
     }
 
     @Override
@@ -59,7 +64,6 @@ public class UserServiceImpl implements UserService {
                 LOG.error("User not found with id: {}", userId);
                 throw new NotFoundException("User not found with id: " + id);
             }
-            LOG.info("User deleted successfully");
         } catch (NumberFormatException e) {
             LOG.error("Invalid user id format: {}", id);
             throw new IllegalArgumentException("Invalid user id format: " + id);
@@ -68,14 +72,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void updateUser(String id, UpdateUserRequest userRequest) {
+    public UserDetails updateUser(String id, UpdateUserRequest userRequest) {
         try {
             Long userId = Long.valueOf(id);
-
+            LOG.info("Updating user with id: {}", userId);
+            
             User user = userRepository.findByIdOptional(userId)
                 .orElseThrow(() -> {
                     LOG.error("User not found with id: {}", userId);
-                    throw new NotFoundException(String.format("User with ID %s was not found in the database", id));
+                    return new NotFoundException(String.format("User with ID %s was not found in the database", id));
                 });
             
             user.setName(userRequest.name());
@@ -84,6 +89,11 @@ public class UserServiceImpl implements UserService {
             userRepository.persist(user);
             LOG.info("User updated successfully");
             
+            return new UserDetails(
+                user.getId().toString(),
+                user.getName(),
+                user.getAge()
+            );
         } catch (NumberFormatException e) {
             LOG.error("Invalid user id format: {}", id);
             throw new IllegalArgumentException("Invalid user ID format. Please provide a valid numeric ID");
