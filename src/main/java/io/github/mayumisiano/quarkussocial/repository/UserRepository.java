@@ -12,27 +12,30 @@ public class UserRepository implements PanacheRepository<User> {
     private static final Logger LOG = LogConfig.getLogger(UserRepository.class);
 
     public User create(String name, Integer age) {
-        LOG.info("Creating user with name: {}", name);
-        
         User user = new User();
         user.setName(name);
         user.setAge(age);
         
         persist(user);
-        LOG.info("User persisted with ID: {}", user.getId());
-        
+
         return user;
     }
 
     public List<User> listAll() {
-        LOG.info("Repository: Starting to fetch all users");
         try {
             List<User> users = findAll().list();
-            LOG.info("Repository: Found {} users", users.size());
             return users;
         } catch (Exception e) {
             LOG.error("Repository: Error fetching users", e);
             throw e;
         }
+    }
+
+    public boolean deleteById(Long id) {
+        return delete("id", id) > 0;
+    }
+
+    public boolean updateUser(Long id, User user) {
+        return update("id", id, user) > 0;
     }
 } 
