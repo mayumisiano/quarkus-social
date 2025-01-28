@@ -1,0 +1,26 @@
+### [GET ALL Users]
+GET {{apiUrl}}/users
+Content-Type: application/json
+
+### [CREATE a User]
+POST {{apiUrl}}/users
+Content-Type: application/json
+
+{
+    "name": "Test User",
+    "age": 25
+}
+
+### [UPDATE an user]
+PUT {{apiUrl}}/users/1
+Content-Type: application/json
+
+{
+    "name": "Updated User",
+    "age": 30
+}
+
+### [DELETE an User]
+DELETE {{apiUrl}}/users/1
+Content-Type: application/json
+
