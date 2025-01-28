@@ -1,4 +1,4 @@
-package io.github.mayumisiano.quarkussocial.rest.DTO;
+package io.github.mayumisiano.quarkussocial.rest.DTO.request;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
