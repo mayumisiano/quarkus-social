@@ -1,10 +1,9 @@
-package io.github.mayumisiano.quarkussocial.rest.controller;
+package io.github.mayumisiano.quarkussocial.controller;
 
-import io.github.mayumisiano.quarkussocial.domain.model.User;
-import io.github.mayumisiano.quarkussocial.rest.DTO.request.CreateUserRequest;
-import io.github.mayumisiano.quarkussocial.rest.DTO.request.UpdateUserRequest;
-import io.github.mayumisiano.quarkussocial.rest.DTO.response.ListUserDetails;
-import io.github.mayumisiano.quarkussocial.rest.DTO.response.UserDetails;
+import io.github.mayumisiano.quarkussocial.domain.DTO.request.CreateUserRequest;
+import io.github.mayumisiano.quarkussocial.domain.DTO.request.UpdateUserRequest;
+import io.github.mayumisiano.quarkussocial.domain.DTO.response.ListUserDetails;
+import io.github.mayumisiano.quarkussocial.domain.DTO.response.UserDetails;
 import io.github.mayumisiano.quarkussocial.service.UserService;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -14,7 +13,6 @@ import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.MediaType;
 import org.slf4j.Logger;
 import io.github.mayumisiano.quarkussocial.config.LogConfig;
-import java.util.Map;
 
 
 @Path("/users")

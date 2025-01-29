@@ -1,4 +1,4 @@
-package io.github.mayumisiano.quarkussocial.rest.DTO.request;
+package io.github.mayumisiano.quarkussocial.domain.DTO.request;
 
 public record UpdateUserRequest(
         String name,

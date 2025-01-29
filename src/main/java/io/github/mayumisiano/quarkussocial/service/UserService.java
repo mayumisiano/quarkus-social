@@ -1,10 +1,9 @@
 package io.github.mayumisiano.quarkussocial.service;
-import io.github.mayumisiano.quarkussocial.domain.model.User;
 import io.github.mayumisiano.quarkussocial.exceptions.NotFoundException;
-import io.github.mayumisiano.quarkussocial.rest.DTO.request.CreateUserRequest;
-import io.github.mayumisiano.quarkussocial.rest.DTO.request.UpdateUserRequest;
-import io.github.mayumisiano.quarkussocial.rest.DTO.response.ListUserDetails;
-import io.github.mayumisiano.quarkussocial.rest.DTO.response.UserDetails;
+import io.github.mayumisiano.quarkussocial.domain.DTO.request.CreateUserRequest;
+import io.github.mayumisiano.quarkussocial.domain.DTO.request.UpdateUserRequest;
+import io.github.mayumisiano.quarkussocial.domain.DTO.response.ListUserDetails;
+import io.github.mayumisiano.quarkussocial.domain.DTO.response.UserDetails;
 
 public interface UserService {
     UserDetails createUser(CreateUserRequest userRequest);

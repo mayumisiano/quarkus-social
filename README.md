@@ -1,5 +1,16 @@
-# quarkus-social
+# Quarkus Social
 
+# Overview
+This is a demo application built with Java and Quarkus for managing users, posts and followers APIs.
+
+## Running locally with Docker
+Run the following command to start both App and Database containers:
+
+```
+docker compose up --build -d  
+```
+
+## Quarkus 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
@@ -53,11 +64,3 @@ You can then execute your native executable with: `./target/quarkus-social-1.0.0
 
 If you want to learn more about building native executables, please consult <https://quarkus.io/guides/maven-tooling>.
 
-## Provided Code
-
-### REST
-
-Easily start your REST Web Services
-
-[Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
-# quarkus-social

@@ -1,4 +1,4 @@
-package io.github.mayumisiano.quarkussocial.rest.DTO.response;
+package io.github.mayumisiano.quarkussocial.domain.DTO.response;
 
 public record UserDetails (
     String id,
