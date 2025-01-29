@@ -1,6 +1,7 @@
 package io.github.mayumisiano.quarkussocial.controller;
 
 import io.github.mayumisiano.quarkussocial.domain.DTO.request.CreatePostRequest;
+import io.github.mayumisiano.quarkussocial.domain.DTO.response.ListPostDetails;
 import io.github.mayumisiano.quarkussocial.domain.DTO.response.PostDetails;
 import io.github.mayumisiano.quarkussocial.service.PostService;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -26,5 +27,11 @@ public class PostController {
     public Response savePost(@PathParam("userId") String userId, CreatePostRequest createPostRequest) {
         PostDetails post = postService.savePost(userId, createPostRequest);
         return Response.status(Response.Status.CREATED).entity(post).build();
+    }
+
+    @GET
+    public Response listPosts(@PathParam("userId") String userId) {
+        ListPostDetails posts = postService.listPostsByUser(userId);
+        return Response.status(Response.Status.OK).entity(posts).build();
     }
 }

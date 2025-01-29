@@ -1,5 +1,6 @@
 package io.github.mayumisiano.quarkussocial.domain.model;
 
+import io.github.mayumisiano.quarkussocial.domain.enums.Tag;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -23,8 +24,9 @@ public class Post {
     @Column(name = "content")
     private String content;
 
-    @Column(name = "tag")
-    private String tag;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tag", nullable = false)
+    private Tag tag;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
@@ -53,20 +55,20 @@ public class Post {
         this.title = title;
     }
 
+    public Tag getTag() {
+        return tag;
+    }
+
+    public void setTag(Tag tag) {
+        this.tag = tag;
+    }
+
     public String getContent() {
         return content;
     }
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public String getTag() {
-        return tag;
-    }
-
-    public void setTag(String tag) {
-        this.tag = tag;
     }
 
     public LocalDateTime getCreatedAt() {
